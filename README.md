@@ -5,7 +5,6 @@
 {{{
 
 }}}
-``\`
 js>$$$
 
 #start.loop
@@ -17,10 +16,11 @@ $wk=($$k==='a')?console.log($$k,'a'):console.log($$k,'other key')
 {1}>>>#start.loop
 
 //command
-//{{{ }}}
-//js
-//k
-//w
-//#start
-//{1}>>>#start
+{{{ }}}
+js>$$$
+k>
+w>
+#start
+$wk=console.log('xyz')
+{1}>>>#start
 ```
