@@ -17,16 +17,22 @@
   is.string =obj=>toString.call(obj) === '[object String]'
   fn.clone=fn.deep=d=>JSON.parse(JSON.stringify(d));
   fn.q=d=>document.querySelector(d)
+  fn.urlcnk=(u)=>{
+  let cep = /.+\?/.test(u)? '&' :'?',v =`__${performance.now()}__=`.replace('.','')
+  return u + cep + v + Date.now()
+  }  
   root.is=is,root.fn=fn
   })(this); 
 </script>
 <canvas></canvas>
 <script>
-  let ctx=ctxpen(320,240),view=document.querySelector('canvas'),mac=''
+  let ctx=ctxpen(320,240),view=document.querySelector('canvas'),mac='',url
   let reg=/id=(.*)/
-  if(reg.test(location.href))
-   fetch("https://gist.githubusercontent.com/gnjo/"+location.href.match(reg).pop()+"/raw/story.txt")
+  if(reg.test(location.href)){
+   url="https://gist.githubusercontent.com/gnjo/"+location.href.match(reg).pop()+"/raw/story.txt"
+   url=fn.urlcnk(url)
+   fetch(url)
    .then(d=>d.text())
    .then(d=>{ mac=d.replace(/＃/g,'#'),fatema.run(mac,{},()=>{ ctx.flip(view) }) /**/})
-   
+  }
 </script>
