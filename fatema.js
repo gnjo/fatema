@@ -142,7 +142,7 @@ var vlib={}
  function _c(d){return d.replace(/\/\*[\s\S]*?\*\/|([^\\:]|^)\/\/.*$/gm,'')}
  //eval
  //special
- function f(a){return a.replace(/\$[\$\w]+/g,d=>`inp.v["${d}"]`)}
+ function f(a){return a.replace(/\$[\$\w]+/g,d=>`fatema.v["${d}"]`)}
  function _(obj){return Function(`return (${f(obj)}) `)()}
  function _e(obj){return eval(obj)}
  //message rep
