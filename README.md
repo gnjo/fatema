@@ -6,10 +6,10 @@
 
 }}}
 
-%%%
+{{{js
 //multiline javascript world
 //but need use
-%%%
+}}}
 
 #start.loop
 k>
@@ -27,4 +27,9 @@ w>
 #start
 $wk=console.log('xyz')
 {1}>>>#start
+
+```
+```
+toBig()
+toSmall()
 ```
