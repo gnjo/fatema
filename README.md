@@ -5,7 +5,11 @@
 {{{
 
 }}}
-js>$$$
+
+%%%
+//multiline javascript world
+//but need use
+%%%
 
 #start.loop
 k>
