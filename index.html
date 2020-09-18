@@ -23,10 +23,10 @@
 <canvas></canvas>
 <script>
   let ctx=ctxpen(320,240),view=document.querySelector('canvas'),mac=''
-  let reg=/id=(.*)&/
+  let reg=/id=(.*)/
   if(reg.test(location.href))
    fetch("https://gist.githubusercontent.com/gnjo/"+location.href.match(reg).pop()+"/raw/story.txt")
    .then(d=>d.text())
-   .then(d=>{ mac=d,fatema.run(mac,{},()=>{ ctx.flip(view) }) /**/})
+   .then(d=>{ mac=d.replace(/＃/g,'#'),fatema.run(mac,{},()=>{ ctx.flip(view) }) /**/})
    
 </script>
