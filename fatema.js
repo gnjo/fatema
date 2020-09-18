@@ -25,7 +25,7 @@ function keycall(caller){
 })(this); 
 
 ;(function(root){
-  let vlib=root.vlib
+  let vlib=root.vlib||{}
   vlib.k=(str,o)=>{
   o.v['$k']=void 0
   keycall((k,del)=>{ if(k) o.v['$k']=k,del(),o.next(); })
