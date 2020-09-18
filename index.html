@@ -1,0 +1,32 @@
+
+<link rel="stylesheet" href="https://gnjo.github.io/ctxpen/ctxpen.css"/>
+<script src="https://gnjo.github.io/fatema/fatema.js?v=1"></script>
+<script src="https://gnjo.github.io/ctxpen/ctxpen.js"></script>
+<style>
+  body,pre{background-color:#0a0a0a;color:white;font-family:monospace;}
+  canvas{
+   transform:scale(2.0);
+   transform-origin: 0 0; 
+   image-rendering: pixelated;
+  } 
+</style>
+<script>
+  ;(function(root){
+  let is=root.is||{},fn=root.fn||{};
+  is.is=d=>(d||d===0)
+  is.string =obj=>toString.call(obj) === '[object String]'
+  fn.clone=fn.deep=d=>JSON.parse(JSON.stringify(d));
+  fn.q=d=>document.querySelector(d)
+  root.is=is,root.fn=fn
+  })(this); 
+</script>
+<canvas></canvas>
+<script>
+  let ctx=ctxpen(320,240),view=document.querySelector('canvas'),mac=''
+  let reg=/id=(.*)&/
+  if(reg.test(location.href))
+   fetch("https://gist.githubusercontent.com/gnjo/"+location.href.match(reg).pop()+"/raw/story.txt")
+   .then(d=>d.text())
+   .then(d=>{ mac=d,fatema.run(mac,{},()=>{ ctx.flip(view) }) /**/})
+   
+</script>
