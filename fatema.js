@@ -244,3 +244,18 @@ function keycall(caller){
  root.vlib=vlib
 })(this);
 
+;(function(root){
+let fn={}
+ fn.toSmall=(str)=>{
+  return str.replace(/[Ａ-Ｚａ-ｚ０-９]/g, function(s) {
+   return String.fromCharCode(s.charCodeAt(0) - 0xFEE0);
+  }) 
+ }
+ fn.toBig=(str)=>{
+  return str.replace(/[A-Za-z0-9]/g, function(s) {
+   return String.fromCharCode(s.charCodeAt(0) + 0xFEE0);
+  });
+ }
+ root.toSmall=fn.toSmall;
+ root.toBig=fn.toBig
+})(this);
