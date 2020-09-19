@@ -51,6 +51,12 @@ d.f
 d.v
 d.addr
 //
+//天井の描画はない。上り階段と下り階段は、壁に描く。
+//床の状態は重ねない。毒の床の上で、イベントを設置できなくなるが、簡略化の為。
+//！ event the person
+//？ event the object, switch, chest, key.
+//
+
 ```
 
 
