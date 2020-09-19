@@ -33,3 +33,29 @@ $wk=console.log('xyz')
 toBig()
 toSmall()
 ```
+
+
+
+```
+
+let d=3dd(mapmacro)
+d.uaddr(3,5,1,'e') //x,y,f,v =>X03Y05F01.E
+d.move('X00Y00F00.E',0) //like a jump
+d.move('E',300) //news ^v<> movetime 300 ms
+d.lookup('u',300) //ud news
+d.flip(viewcanvas)
+//
+d.x
+d.y
+d.f
+d.v
+d.addr
+//
+```
+
+
+
+
+
+
+
