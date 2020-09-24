@@ -59,7 +59,43 @@ d.addr
 
 ```
 
-
+```
+3dd(`
+//symbol=front.png,back.png
+//symbol=#000000,#ffffff,
+//special transparent => symbol=transparent,#ff00ff
+■=wall.png
+　=road.png
+→=door.png,wall.png
+上=upstair.png
+下=downstair.png
+扉=door.png
+出=#ff0000
+毒=#ffff00
+//size=width,height
+//size is floor size. if 41char => 20
+size=20,20
+■■■■■■■■■■■■■■■■■■■■■■■■■■■
+■　　　　　　　　　　　　　　■
+■　■　■　■　■　■　■　■　■　■
+■　　　　　　　　　　　　　　■
+■　■　■　■　■　■　■　■　■　■
+■　　　　　　　　　　　　　　■
+■　■　■　■　■　■　■　■　■　■
+■　　　　　　　　　　　　　　■
+■■■■■■■■■■■■■■■■■■■■■■■■■■■■
+■■■■■■■■■■■■■■■■■■■■■■■■■■■■
+■　　　　　　　　　　　　　　■
+■　■　■　■　■　■　■　■　■　■
+■　　　　　　　　　　　　　　■
+■　■　■　■　■　■　■　■　■　■
+■　　　　　　　　　　　　　　■
+■　■　■　■　■　■　■　■　■　■
+■　　　　　　　　　　　　　　■
+■■■■■■■■■■■■■■■■■■■■■■■■■■■■
+//always trim and // 
+`)
+```
 
 
 
