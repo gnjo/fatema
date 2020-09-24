@@ -60,21 +60,24 @@ d.addr
 ```
 
 ```
-3dd(`
+let dung1=3dd(`
 //symbol=front.png,back.png
-//symbol=#000000,#ffffff,
-//special transparent => symbol=transparent,#ff00ff
+//symbol=#000000,#ffffff
+//special transparent is single #=> symbol=#,#ff00ff
+//walls
 ■=wall.png
-　=road.png
 →=door.png,wall.png
 上=upstair.png
 下=downstair.png
 扉=door.png
 出=#ff0000
+//grounds
+　=#
 毒=#ffff00
 //size=width,height
 //size is floor size. if 41char => 20
-size=20,20
+//need head Fxx=
+F01=
 ■■■■■■■■■■■■■■■■■■■■■■■■■■■
 ■　　　　　　　　　　　　　　■
 ■　■　■　■　■　■　■　■　■　■
@@ -84,6 +87,7 @@ size=20,20
 ■　■　■　■　■　■　■　■　■　■
 ■　　　　　　　　　　　　　　■
 ■■■■■■■■■■■■■■■■■■■■■■■■■■■■
+F02=
 ■■■■■■■■■■■■■■■■■■■■■■■■■■■■
 ■　　　　　　　　　　　　　　■
 ■　■　■　■　■　■　■　■　■　■
@@ -94,7 +98,7 @@ size=20,20
 ■　　　　　　　　　　　　　　■
 ■■■■■■■■■■■■■■■■■■■■■■■■■■■■
 //always trim and // 
-`)
+`).test()
 ```
 
 
