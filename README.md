@@ -119,6 +119,11 @@ d1.move('u',300) //up stair if F02 => F01
 d1.lookup('u',300) //ud news
 d1.flip(viewcanvas)
 
+//d1.automove(baseaddr,moves,span,maxstep)
+//d1.automove('F01X01Y01.E','>>>>>^^^^^^^^>>>>>>>^^^^^^',300)
+//d1.automove(baseaddr,walls,span,maxstep)
+d1.automove('F01X01Y01.E','■',300,255)
+//algorithm right and left touch 
 
 ```
 
