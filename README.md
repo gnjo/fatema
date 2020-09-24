@@ -61,20 +61,21 @@ d.addr
 
 ```
 let dung1=3dd(`
+////////////////////////////////////////////////////////////////
 //symbol=front.png,back.png
 //symbol=#000000,#ffffff
 //special transparent is single #=> symbol=#,#ff00ff
-//walls
+//walls//////////////////////////////////////////////////////////
 ■=wall.png
 →=door.png,wall.png
 上=upstair.png
 下=downstair.png
 扉=door.png
 出=#ff0000
-//grounds
+//grounds//////////////////////////////////////////////////////
 　=#
 毒=#ffff00
-//size=width,height
+////////////////////////////////////////////////////////////////
 //size is floor size. if 41char => 20
 //need head Fxx=
 F01=
@@ -99,6 +100,16 @@ F02=
 ■■■■■■■■■■■■■■■■■■■■■■■■■■■■
 //always trim and // 
 `).test()
+;
+
+function tick(){
+  requestAnimationFrame(tick);
+   if(!dung1.loading)
+    if(dung1.show)
+     if(dung1.moving)
+      dung1.flip(canvas)
+}
+
 ```
 
 
