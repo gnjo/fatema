@@ -38,12 +38,6 @@ toSmall()
 
 ```
 
-let d=3dd(mapmacro)
-d.uaddr(3,5,1,'e') //x,y,f,v =>X03Y05F01.E
-d.move('X00Y00F00.E',0) //like a jump
-d.move('E',300) //news ^v<> movetime 300 ms
-d.lookup('u',300) //ud news
-d.flip(viewcanvas)
 //
 d.x
 d.y
@@ -60,7 +54,7 @@ d.addr
 ```
 
 ```
-let dung1=3dd(`
+let d1=3dd(`
 //walls/////////////////////////////////////////////////////////
 //symbol=front.png,back.png
 //symbol=#000000,#ffffff
@@ -107,11 +101,24 @@ F02=
 
 function tick(){
   requestAnimationFrame(tick);
-   if(!dung1.loading)
-    if(dung1.show)
-     if(dung1.moving)
+   if(!d1.loading)
+    if(d1.show)
+     if(d1.moving)
       dung1.flip(canvas)
 }
+
+d1.move(1,1,1,'E',movetime)//f,x,y,e,movetime
+d1.move('F01X01Y01.E',0) //like a jump
+d1.move(20,20,300) //x,y,movetime
+d1.gs('E') //getsymbol
+d1.gs('F01X01Y01.E')//
+d1.gs() //now ground
+d1.move('E',300) //news ud ^v<> movetime 300 ms
+d1.move('^',300) //foward
+d1.move('u',300) //up stair if F02 => F01
+d1.lookup('u',300) //ud news
+d1.flip(viewcanvas)
+
 
 ```
 
