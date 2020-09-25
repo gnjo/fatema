@@ -127,7 +127,30 @@ d1.automove('F01X01Y01.E','■',300,255)
 
 ```
 
+```
+
+let moving=0
+function chase(target,camera,ofs){
+  var relativeCameraOffset = new THREE.Vector3(ofs[0],ofs[1],ofs[2]);
+	var cameraOffset = relativeCameraOffset.applyMatrix4( target.matrixWorld );
+	camera.position.x = cameraOffset.x;
+	camera.position.y = cameraOffset.y;
+	camera.position.z = cameraOffset.z;
+	camera.lookAt( target.position );  
+ }
+}
+function rot(target,deg,time){
+ moving=1
+ time=time||300
+ let s=10,dd=THREE.Math.degToRad(deg/s),dt=time/s,i=0
+ let id=setInterval(()=>{
+  if(i>s) clearInterval(id),moving=0
+  target.rotateOnAxis( new THREE.Vector3(0,1,0),dd);  
+  i++
+ },dt)
+}
 
 
+```
 
 
