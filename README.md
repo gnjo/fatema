@@ -54,7 +54,7 @@ d.addr
 ```
 
 ```
-let d1=3dd(`
+let d1=thirdry(`
 //walls/////////////////////////////////////////////////////////
 //symbol=front.png,back.png
 //symbol=#000000,#ffffff
@@ -133,7 +133,7 @@ d1.automove('F01X01Y01.E','■',300,255)
  function lex(text){
   let o={};
  }
-let 3dd=function(text){
+let thirdry=function(text){
  let o={}
  o.canvas=document.createElement('canvas')
  o.fdata=Array.from({length:10})
