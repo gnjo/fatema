@@ -67,12 +67,15 @@ let d1=3dd(`
 扉=door.png
 出=#ff0000
 //grounds//////////////////////////////////////////////////////
-//symbol=ground,groundback,pointlightcolor
-//！=#000000,#000000,#ff0000
+//symbol=ground.png
+//！=#000000
 ////
 　=#000000
 毒=#ffff00,#000000
-////////////////////////////////////////////////////////////////
+//grounds with standing object////////////////////////////////////////////
+//symbol=man.png
+//カタカナのアからンまで。濁点は非推奨。
+ア=xxxx.png
 //size is floor size. if 41char => 20
 //need head Fxx=
 F01=
@@ -110,9 +113,8 @@ function tick(){
 d1.move(1,1,1,'E',movetime)//f,x,y,e,movetime
 d1.move('F01X01Y01.E',0) //like a jump
 d1.move(20,20,300) //x,y,movetime
-d1.gs('E') //getsymbol
-d1.gs('F01X01Y01.E')//
-d1.gs() //now ground
+d1.gets('F01X01Y01.E')//other pos
+d1.gets() //now pos
 d1.move('E',300) //news ud ^v<> movetime 300 ms
 d1.move('^',300) //foward
 d1.move('u',300) //up stair if F02 => F01
@@ -128,28 +130,22 @@ d1.automove('F01X01Y01.E','■',300,255)
 ```
 
 ```
-
-let moving=0
-function chase(target,camera,ofs){
-  var relativeCameraOffset = new THREE.Vector3(ofs[0],ofs[1],ofs[2]);
-	var cameraOffset = relativeCameraOffset.applyMatrix4( target.matrixWorld );
-	camera.position.x = cameraOffset.x;
-	camera.position.y = cameraOffset.y;
-	camera.position.z = cameraOffset.z;
-	camera.lookAt( target.position );  
+ function lex(text){
+  let o={};
+ }
+let 3dd=function(text){
+ let o={}
+ o.canvas=document.createElement('canvas')
+ o.fdata=Array.from({length:10})
+ ;
+ o.move=function(){
+ }
+ o.gets=function(){
+ }
+ o.flip=function(viewcanvas){
+  
  }
 }
-function rot(target,deg,time){
- moving=1
- time=time||300
- let s=10,dd=THREE.Math.degToRad(deg/s),dt=time/s,i=0
- let id=setInterval(()=>{
-  if(i>s) clearInterval(id),moving=0
-  target.rotateOnAxis( new THREE.Vector3(0,1,0),dd);  
-  i++
- },dt)
-}
-
 
 ```
 
