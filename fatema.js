@@ -10,6 +10,7 @@ v0.5 disable create variable
 v0.9 speedup
 v1.0 jumpback issue 
 v1.1 PJS pure javascript {{{js ...}}}
+v1.2 logger
 */
 const CR="\n",HIDE=void 0
 var vlib={}
@@ -242,12 +243,7 @@ function keycall(caller){
  vlib.wait=(str,o)=>{ 
  setTimeout(()=>{o.next()},o.v['$wait']=parseInt(str))
  }
- 
- //
- vlib.m=(str,o)=>{
- }
- //
- 
+  
  vlib.w=vlib.wait//
  root.vlib=vlib
 })(this);
@@ -267,3 +263,23 @@ let fn={}
  root.toSmall=fn.toSmall;
  root.toBig=fn.toBig
 })(this);
+
+;(function(root){
+ function entry(){
+  var o={}
+  ;
+  o.max=100,o.buf=[],o.log=[];
+  o.add=(str)=>{if(str!=void 0)return str.split('\n').map(d=>o.buf.push(d))}
+  o.push=o.add
+  o.isempty=()=>{return o.buf.length===0}
+  o.get=(line)=>{
+   let a=o.buf.shift(),l=line||1
+   if(a!=void 0) o.log.push(a)
+   else o.log=o.log.slice(-1*o.max)
+   return o.log.slice(-1*l).join('\n')
+  }
+  return o;
+ }
+ root.logger=entry
+})(this);
+
