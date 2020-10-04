@@ -184,7 +184,7 @@ var vlib={}
    if(o.isend())return console.log('endline') /////
    //$$l=o.line //v0.9
    let list=o.get();
-   o.v['$$d']=line //debug
+   o.v['$$d']=list //debug
    if(list) o.v['$$l']=o.line,o.cmd(list),o.lop() //speedup
    else setTimeout(o.lop,1000/o._fps) //sppedup
    //if(list&&debugflg)console.log(list)
