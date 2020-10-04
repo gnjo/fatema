@@ -171,6 +171,7 @@ var vlib={}
   o.caller
   o.cmds
   o.jumpback=0
+  o.debug=''  //debug
   o.setjumpback=()=>{return o.jumpback=o.line+1}  //v0.9
   o.search=(d)=>{return (d==='###')?o.jumpback:o.jumps[d]}
   o.makefootstep=()=>{
@@ -184,7 +185,7 @@ var vlib={}
    if(o.isend())return console.log('endline') /////
    //$$l=o.line //v0.9
    let list=o.get();
-   o.v['$$d']=list //debug
+   o.debug=list //debug
    if(list) o.v['$$l']=o.line,o.cmd(list),o.lop() //speedup
    else setTimeout(o.lop,1000/o._fps) //sppedup
    //if(list&&debugflg)console.log(list)
