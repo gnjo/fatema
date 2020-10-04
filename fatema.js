@@ -179,13 +179,13 @@ var vlib={}
    if(!o.v['$$f'])o.v['$$f']={},Object.keys(o.jumps).map(k=>o.v['$$f'][k]=0);
   }
   o.cmd=(list)=>{//{str,type,line}
+   o.debug=list.str
    return (o.cmds[list.type]||o.cmds['CMM'])(list.str,o)
   }
   o.lop=()=>{
    if(o.isend())return console.log('endline') /////
    //$$l=o.line //v0.9
    let list=o.get();
-   o.debug=list //debug
    if(list) o.v['$$l']=o.line,o.cmd(list),o.lop() //speedup
    else setTimeout(o.lop,1000/o._fps) //sppedup
    //if(list&&debugflg)console.log(list)
