@@ -242,6 +242,12 @@ function keycall(caller){
  vlib.wait=(str,o)=>{ 
  setTimeout(()=>{o.next()},o.v['$wait']=parseInt(str))
  }
+ 
+ //
+ vlib.m=(str,o)=>{
+ }
+ //
+ 
  vlib.w=vlib.wait//
  root.vlib=vlib
 })(this);
