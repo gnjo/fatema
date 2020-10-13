@@ -11,6 +11,7 @@ v0.9 speedup
 v1.0 jumpback issue 
 v1.1 PJS pure javascript {{{js ...}}}
 v1.2 logger
+v1.3 parser error
 */
 const CR="\n",HIDE=void 0
 var vlib={}
@@ -51,9 +52,11 @@ var vlib={}
   ,CMM:/^.*/
  }
  function lexs(text,offset){
+  text=text||''
   let oi=offset||0,jumps={}
-  let lists=text.replace(ma.trim,'')/*.replace(ma.trim2,'')*/.match(ma.group)  //v1.5 %{{{}}} cut
-  .map((d,i)=>{
+  let lists=text.replace(ma.trim,'')/*.replace(ma.trim2,'')*/.match(ma.group)||[]  //v1.5 %{{{}}} cut //lists empty error recovery
+  ;
+  lists.map((d,i)=>{
    let type='CMM';
    for(type of ma.types)
     if(ma[type].test(d))break;
