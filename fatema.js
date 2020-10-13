@@ -11,7 +11,6 @@ v0.9 speedup
 v1.0 jumpback issue 
 v1.1 PJS pure javascript {{{js ...}}}
 v1.2 logger
-v1.3 parser error
 */
 const CR="\n",HIDE=void 0
 var vlib={}
@@ -52,11 +51,9 @@ var vlib={}
   ,CMM:/^.*/
  }
  function lexs(text,offset){
-  text=text||''
   let oi=offset||0,jumps={}
-  let lists=text.replace(ma.trim,'')/*.replace(ma.trim2,'')*/.match(ma.group)||[]  //v1.5 %{{{}}} cut //lists empty error recovery
-  ;
-  lists.map((d,i)=>{
+  let lists=text.replace(ma.trim,'')/*.replace(ma.trim2,'')*/.match(ma.group)  //v1.5 %{{{}}} cut
+  .map((d,i)=>{
    let type='CMM';
    for(type of ma.types)
     if(ma[type].test(d))break;
@@ -198,7 +195,7 @@ var vlib={}
    o.caller=caller||function(o,k,v){return}
    o.cmds=Object.assign(vlib,userlib)   
    let isstring = function(obj){return toString.call(obj) === '[object String]'}
-   if(text) isstring(text)?o.add(text):text.map(d=>o.add(d))//v1.0 multi text //parse error
+   isstring(text)?o.add(text):text.map(d=>o.add(d))//v1.0 multi text
    o.makefootstep()//v1.0
    //if(debugflg)console.log(o.lists)
    //console.log(o.v['$$f'])
@@ -285,4 +282,3 @@ let fn={}
  }
  root.logger=entry
 })(this);
-
