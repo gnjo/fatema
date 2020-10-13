@@ -198,7 +198,7 @@ var vlib={}
    o.caller=caller||function(o,k,v){return}
    o.cmds=Object.assign(vlib,userlib)   
    let isstring = function(obj){return toString.call(obj) === '[object String]'}
-   isstring(text)?o.add(text):text.map(d=>o.add(d))//v1.0 multi text
+   if(text) isstring(text)?o.add(text):text.map(d=>o.add(d))//v1.0 multi text //parse error
    o.makefootstep()//v1.0
    //if(debugflg)console.log(o.lists)
    //console.log(o.v['$$f'])
