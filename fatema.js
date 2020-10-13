@@ -11,6 +11,7 @@ v0.9 speedup
 v1.0 jumpback issue 
 v1.1 PJS pure javascript {{{js ...}}}
 v1.2 logger
+v1.3 empty error
 */
 const CR="\n",HIDE=void 0
 var vlib={}
@@ -195,7 +196,7 @@ var vlib={}
    o.caller=caller||function(o,k,v){return}
    o.cmds=Object.assign(vlib,userlib)   
    let isstring = function(obj){return toString.call(obj) === '[object String]'}
-   isstring(text)?o.add(text):text.map(d=>o.add(d))//v1.0 multi text
+   if(text) isstring(text)?o.add(text):text.map(d=>o.add(d))//v1.0 multi text //empty issue
    o.makefootstep()//v1.0
    //if(debugflg)console.log(o.lists)
    //console.log(o.v['$$f'])
