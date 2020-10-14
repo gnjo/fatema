@@ -112,6 +112,7 @@ var vlib={}
  function f(a){return a.replace(/\$[\$\w]+/g,d=>`fatema.v["${d}"]`)}
  function _(obj){return Function(`return (${f(obj)}) `)()}
  function _e(obj){return eval(obj)}
+ function _e2(obj){return eval(f(obj))}
  //message rep
  function _m(obj){return obj.replace(/{(.*?)}/g,(d,dd)=>{return _(dd)}) }
  //trim { and }
@@ -133,8 +134,8 @@ var vlib={}
  let vlib=root.vlib 
  vlib.CMM=(str,o)=>{return o.next()}
  vlib.EVL=(str,o)=>{return /*o.v['$$$'] =*/ _(_t(str)),o.next()} //v0.4
- vlib.PJS=(str,o)=>{return /*o.v['$$$'] =*/ _e(_t3(str)),o.next()} //v1.1
-
+ vlib.PJS=(str,o)=>{return /*o.v['$$$'] =*/ _e2(_t3(str)),o.next()} //v1.1 //v1.5 _e> _e2
+ 
  vlib.EVM=(str,o)=>{return o.v['$$$'] =_m(_t2(str)),o.next()}
  vlib.JMP=(str,o)=>{
   let a=str.split('>>>'),addr=_m(a[1]),i=/^\d+$/.test(addr)?parseInt(addr):o.search(addr) //v1.0 parseInt
