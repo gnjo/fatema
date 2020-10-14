@@ -12,8 +12,9 @@ v1.0 jumpback issue
 v1.1 PJS pure javascript {{{js ...}}}
 v1.2 logger
 v1.3 empty error
+v1.4 $k easy picking
 */
-const CR="\n",HIDE=void 0
+const CR="\n",HIDE=void 0,$k=void 0 //easy picking
 var vlib={}
 ;(function(root){
  var fps=60,ms=50,count=0,callary=[],running=false,stopflg=false,cl=void 0
@@ -237,8 +238,11 @@ function keycall(caller){
 ;(function(root){
   let vlib=root.vlib||{}
   vlib.k=(str,o)=>{
-  o.v['$k']=void 0
-  keycall((k,del)=>{ if(k) o.v['$k']=k,del(),o.next(); })
+  root.$k=o.v['$k']=void 0  //easy picking
+  keycall((k,del)=>{ 
+   //if(k) o.v['$k']=k,del(),o.next(); 
+   if(k) root.$k=o.v['$k']=k,del(),o.next(); //easy picking
+  })
   return;
  }
  vlib.wait=(str,o)=>{ 
