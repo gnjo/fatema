@@ -177,7 +177,7 @@ var vlib={}
   o.debug=''  //debug
   o.setjumpback=()=>{return o.jumpback=o.line+1}  //v0.9
   o.search=(d)=>{return (d==='###')?o.jumpback:o.jumps[d]}
-  o.getkey=()=>{return o.v['$k']
+  o.getkey=()=>{return o.v['$k']} //v1.4
   o.makefootstep=()=>{
    //v1.0 if footstep input like a save, $$f is exist.
    if(!o.v['$$f'])o.v['$$f']={},Object.keys(o.jumps).map(k=>o.v['$$f'][k]=0);
