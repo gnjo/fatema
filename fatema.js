@@ -123,6 +123,7 @@ var vlib={}
  root._c=_c
  root._=_
  root._e=_e
+ root._e2=_e2
  root._m=_m
  root._t=_t
  root._t2=_t2 
