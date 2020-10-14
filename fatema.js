@@ -12,9 +12,9 @@ v1.0 jumpback issue
 v1.1 PJS pure javascript {{{js ...}}}
 v1.2 logger
 v1.3 empty error
-v1.4 $k easy picking
+v1.4 fatema.getkey() 
 */
-const CR="\n",HIDE=void 0,$k=void 0 //easy picking
+const CR="\n",HIDE=void 0
 var vlib={}
 ;(function(root){
  var fps=60,ms=50,count=0,callary=[],running=false,stopflg=false,cl=void 0
@@ -177,6 +177,7 @@ var vlib={}
   o.debug=''  //debug
   o.setjumpback=()=>{return o.jumpback=o.line+1}  //v0.9
   o.search=(d)=>{return (d==='###')?o.jumpback:o.jumps[d]}
+  o.getkey=()=>{return o.v['$k']
   o.makefootstep=()=>{
    //v1.0 if footstep input like a save, $$f is exist.
    if(!o.v['$$f'])o.v['$$f']={},Object.keys(o.jumps).map(k=>o.v['$$f'][k]=0);
@@ -238,10 +239,10 @@ function keycall(caller){
 ;(function(root){
   let vlib=root.vlib||{}
   vlib.k=(str,o)=>{
-  root.$k=o.v['$k']=void 0  //easy picking
+  o.v['$k']=void 0  //easy picking
   keycall((k,del)=>{ 
-   //if(k) o.v['$k']=k,del(),o.next(); 
-   if(k) root.$k=o.v['$k']=k,del(),o.next(); //easy picking
+   if(k) o.v['$k']=k,del(),o.next(); 
+   //if(k) root.$k=o.v['$k']=k,del(),o.next(); //easy picking
   })
   return;
  }
